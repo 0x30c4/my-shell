@@ -12,7 +12,7 @@
 #include <errno.h>
 #include <unistd.h>
 #include <sys/wait.h>
-#include "mysh.h"
+// #include "mysh.h"
 
 
 // statics for running the main process or shell
@@ -344,7 +344,7 @@ int main(int argc, char *argv[]) {
     char *buf = malloc(len * sizeof(char));
     printf("mysh\n");
     while (1) {
-	printf("\033[0;32m")
+		printf("\033[0;32m");
         printf("mysh[%d]", cmd_num);
         fgets(buf, len, stdin);
         char *pos;
@@ -364,6 +364,5 @@ int main(int argc, char *argv[]) {
     }
 
     return EXIT_SUCCESS;
-
 }
 
