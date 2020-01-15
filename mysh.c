@@ -35,7 +35,7 @@ Node *create_node(char *command){
         Node *node = NULL;
         node = malloc(sizeof(Node));
         node->command = strdup(command);
-	node->cmd_num = cmd_num;
+		node->cmd_num = cmd_num;
         node->next = NULL;
         return node;
 }
@@ -334,7 +334,6 @@ int bang(int argc, char *argv[]){
 // MAIN METHOD: LOOP FOR SHELL
 
 int main(int argc, char *argv[]) {
-
     char **tokens;
     int tokens_s = 0;
     int *tokens_size = &tokens_s;
@@ -349,9 +348,11 @@ int main(int argc, char *argv[]) {
         fgets(buf, len, stdin);
         char *pos;
         if ((pos=strchr(buf, '\n')) != NULL) *pos = '\0';
-	if (buf == NULL) break;
+		
+		if (buf == NULL) break;
         tokens = parse(tokens_size, buf);
-        if (1 == shell_command_handler(buf, tokens, tokens_size) && (strcmp(tokens[0], "history") != 0)){
+		
+		if (1 == shell_command_handler(buf, tokens, tokens_size) && (strcmp(tokens[0], "history") != 0)){
             if (history_queue->size == history_queue->max_size){
                 dequeue(history_queue);
             }
